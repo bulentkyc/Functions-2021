@@ -41,12 +41,21 @@ if (isNaN(age)) {
 
 
 
-function sum(number1 , number2) {
-    //if(!number2) is same as if(number2 == undefined)
-    if (typeof(number2) != 'number') {
+//if(!number2) is same as if(number2 == undefined)
+
+
+function sum(number1, number2) {
+    if (isNaN(number2)) {
         console.log('You should give me the second number');
     } else {
         var total = number1 + number2;
         console.log(total);
     }
+}
+
+function promptSum() {
+    var number1 = parseInt(prompt(`1. number: `));
+    var n2 = parseInt(prompt(`2. number: `));
+    
+    sum(number1, n2);
 }
