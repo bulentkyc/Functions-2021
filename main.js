@@ -1,3 +1,5 @@
+'use strict'
+
 //alert('Hey')
 
 var myTestVar = 'Hello World!';
@@ -77,7 +79,7 @@ console.log( sum );
 function isPrime1(cNumber) {
     var result;
     var i;
-    for (i = 2; i < cNumber/2; i++) {
+    for (i = 2; i <= cNumber/2; i++) {
         console.log(`${cNumber}/${i}=${cNumber/i}`);
         if (cNumber % i === 0) {
             result = false;
@@ -94,20 +96,29 @@ function isPrime1(cNumber) {
 }
 
 function isPrime2(cNumber) {
-    for (let i = 2; i < cNumber/2; i++) {
-        //console.log(`${cNumber}/${i}=${cNumber/i}`);
-        if (cNumber % i === 0) {
-            return false;
+    if (!isNaN(parseInt(cNumber))) {
+        for (let i = 2; i < cNumber; i++) {
+            //console.log(`${cNumber}/${i}=${cNumber/i}`);
+            if (cNumber % i === 0) {
+                return false;
+            }
         }
+        return true;
+    } else {
+        console.error(`${cNumber} is not a number.`);
     }
-    return true;
 }
 
-console.log(isPrime2(751));
+console.log(isPrime2('4'));
 
 
-
-
+function printPrimes(start, end) {
+    for (let i = start; i <= end; i++) {
+        if ( isPrime2(i)) {
+            console.log(i);
+        }
+    }
+}
 
 /* 
     //if we hav e numbers
@@ -117,3 +128,122 @@ console.log(isPrime2(751));
  */
     
     //Loop through numbers start and end
+
+
+    /*
+
+
+myFunction();
+
+//Function declarion
+function myFunction() {
+    console.log('Hello World');
+}
+
+
+//Hoisting not alloud
+//mySecondFunc();
+
+//Function expression
+var mySecondFunc = function() {
+    console.log('Hello World!');
+}
+
+console.log(myFunction);
+console.log(typeof myFunction);
+
+
+console.log(mySecondFunc);
+console.log(typeof mySecondFunc);
+
+mySecondFunc();
+
+//------------------------Day-3----------------------------//
+
+const myNewFunc = function name() {
+    alert('Hey!')
+}
+
+myNewFunc = 0;
+
+console.log(myNewFunc);
+
+myNewFunc();
+////////////////////////////////////////
+
+
+const testMe = 5;
+console.log(testMe);
+testMe = 10;
+
+console.log(testMe);
+
+testMe = 'Hello World';
+
+console.log(testMe);
+
+
+if(true){
+    let xyz = 'yes';
+}
+
+console.log(xyz);
+*/
+// Arrow functions //
+myFunc2()
+
+function myFunc1() {
+    return 123;
+}
+
+var myFunc2 = function() {
+    return 123;
+}
+
+const myFunc3 = function() {
+    return 123;
+}
+
+const myFunc4 = () => {
+    return (123);
+}
+
+const myFunc5 = () => 1234;
+
+const myFunc6 = parameterName => 123+parameterName;
+
+console.log(myFunc1());
+console.log(myFunc2());
+console.log(myFunc3());
+console.log(myFunc4());
+console.log(myFunc5());
+console.log(myFunc6());
+
+let testNew = 'true';
+
+console.log( testNew == 'true');
+
+
+
+const getLonger = (text1, text2) => (text1.length > text2.length) ? text1 : (text1.length < text2.length) ? text2 : null;
+
+/* 
+const getLonger = (text1, text2) => {
+    if (text1.length > text2.length) {
+        return text1;
+    } else if (text1.length < text2.length) {
+        return text2;
+    } else {
+        return null;
+    }
+}
+ */
+
+const promptGetLonger = () => {
+    let t1 = prompt('Please give me a text to compare');
+    let t2 = prompt('Please give me another text to compare');
+    console.log( getLonger(t1, t2));
+}
+
+let myText = 'Hello World!';
+console.log(myText[10]);
